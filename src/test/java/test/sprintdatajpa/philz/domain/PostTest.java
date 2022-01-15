@@ -19,7 +19,7 @@ class PostTest {
 	@Autowired
 	PostRepository postRepository;
 
-	@BeforeEach
+	// @BeforeEach
 	void setUp() {
 
 		List<Post> posts = new ArrayList<>();
@@ -31,22 +31,24 @@ class PostTest {
 		postRepository.saveAll(posts);
 	}
 	
-	@AfterEach
+	// @AfterEach
 	void after() {
 		postRepository.deleteAll();
 	}
 
-	@Test
+	// @Test
 	void findByIdTest() {
 		List<Post> posts = postRepository.findAll();
 		System.out.println("------------ #1 -------------");
 		posts.forEach(System.out::println);
 	}
 
-	@Test
+	// @Test
 	void findByName() {
 		Post findPost = postRepository.findByName("post 1").get();
 		System.out.println("------------ #2 -------------");
 		System.out.println("findPost = " + findPost);
 	}
+
+
 }
