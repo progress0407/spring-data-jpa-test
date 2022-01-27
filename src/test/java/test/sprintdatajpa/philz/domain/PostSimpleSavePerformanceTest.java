@@ -2,6 +2,8 @@ package test.sprintdatajpa.philz.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import test.sprintdatajpa.philz.repository.PostRepository;
 
-@SpringBootTest
+// @SpringBootTest
 public class PostSimpleSavePerformanceTest {
 
 	@Autowired

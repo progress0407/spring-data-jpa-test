@@ -27,8 +27,8 @@ public class PureJpaTest {
 			em.persist(post);
 			tx.commit();
 		} catch (Exception e) {
+			System.out.println("----------------------- rollback ! -------------------------");
 			tx.rollback();
-			System.out.println("rollback !");
 			e.printStackTrace();
 		}
 

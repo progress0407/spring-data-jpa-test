@@ -20,8 +20,7 @@ import lombok.ToString;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Post {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Id @GeneratedValue
 	private Long id;
 
 	private String name;
