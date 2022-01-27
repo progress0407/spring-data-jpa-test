@@ -22,7 +22,7 @@ import lombok.ToString;
 @Setter @ToString
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-abstract public class File {
+public class File {
 
 	@Id @GeneratedValue(generator = "item_id_generator")
 	@GenericGenerator(name = "item_id_generator", strategy = "uuid")
