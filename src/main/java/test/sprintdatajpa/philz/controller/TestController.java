@@ -1,14 +1,10 @@
-package test.sprintdatajpa.philz.repository;
+package test.sprintdatajpa.philz.controller;
 
 import java.util.Arrays;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
+import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import test.sprintdatajpa.philz.domain.Bookmark;
 import test.sprintdatajpa.philz.domain.Bookmarks;
@@ -16,31 +12,12 @@ import test.sprintdatajpa.philz.domain.FileGroup;
 import test.sprintdatajpa.philz.domain.Folder;
 import test.sprintdatajpa.philz.domain.Folders;
 
-@SpringBootTest
-class FileRepositoryTest {
+@Controller
+public class TestController {
 
-	@Autowired
-	private FileRepository fileRepository;
-
-	@Autowired
-	private FolderRepository folderRepository;
-
-	@Autowired
-	private BookmarkRepository bookmarkRepository;
-
-	@AfterEach
-	void tearDown() {
-		fileRepository.deleteAll();
-		folderRepository.deleteAll();
-		bookmarkRepository.deleteAll();
-	}
-
-	@Test
+	@GetMapping("/test")
 	@Transactional
-	@Rollback(false)
-	@DisplayName("V3 폴더와 북마크 모두 있을 경우")
-	public void v3_folder_and_bookmark_all_exist() {
-
+	public void test() {
 		Folder folderA = new Folder();
 		folderA.setName("folder a");
 		folderA.setShare(false);

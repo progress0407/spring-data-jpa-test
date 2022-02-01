@@ -14,7 +14,6 @@ public class Files {
 	private Folders folders;
 	private Bookmarks bookmarks;
 
-	// filesCheckAndExecuteMap
 	private static final Map<Supplier<Boolean>, Voider> FILES_MAP = new HashMap<>();
 
 	public Files(Folders folders, Bookmarks bookmarks) {
@@ -22,17 +21,22 @@ public class Files {
 		this.bookmarks = bookmarks;
 
 		FILES_MAP.put(this::isExist, this::somethingDo);
-		FILES_MAP.put(() -> this.folders.isExist() && !this.bookmarks.isExist(), this.folders::somethingDo);
-		FILES_MAP.put(() -> this.bookmarks.isExist() && !this.folders.isExist(), this.bookmarks::somethingDo);
+		FILES_MAP.put(() -> this.folders.isExist() && this.bookmarks.isNotExist(), this.folders::somethingDo);
+		FILES_MAP.put(() -> this.bookmarks.isExist() && this.folders.isNotExist(), this.bookmarks::somethingDo);
 	}
 
 	public Boolean isExist() {
 		return folders.isExist() && bookmarks.isExist();
 	}
 
+	public Boolean isNotExist() {
+		return !isExist();
+	}
+
 	public void somethingDo() {
+
 		out.println("---------------------------");
-		out.println("#here Files : 동작 수행");
+		out.println("#here Files : 동작 수행 (폴더와 북마크가 모두 있을 경우) ");
 		out.println("---------------------------");
 	}
 

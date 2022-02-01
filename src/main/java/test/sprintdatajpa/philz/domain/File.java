@@ -1,5 +1,7 @@
 package test.sprintdatajpa.philz.domain;
 
+import static java.lang.System.*;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -38,5 +40,11 @@ public class File {
 	public File(String id, String name) {
 		this.id = id;
 		this.name = name;
+	}
+
+	public void somethingDo() {
+		out.println("---------------------------");
+		out.println("#here File : 동작 수행");
+		out.println("---------------------------");
 	}
 }

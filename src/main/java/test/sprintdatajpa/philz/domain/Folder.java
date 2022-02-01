@@ -1,5 +1,7 @@
 package test.sprintdatajpa.philz.domain;
 
+import static java.lang.System.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,5 +35,12 @@ public class Folder extends File {
 	public void addChildren(File... files) {
 		Arrays.stream(files).forEach((File file) -> file.setParent(this));
 		children.addAll(Arrays.asList(files));
+	}
+
+	@Override
+	public void somethingDo() {
+		out.println("---------------------------");
+		out.println("#here Folder : 동작 수행");
+		out.println("---------------------------");
 	}
 }

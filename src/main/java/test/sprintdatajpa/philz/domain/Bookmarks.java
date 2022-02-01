@@ -16,10 +16,17 @@ public class Bookmarks extends Files {
 		this.bookmarks = bookmarks;
 	}
 
+	@Override
 	public Boolean isExist() {
 		return bookmarks.size() > 0;
 	}
 
+	@Override
+	public Boolean isNotExist() {
+		return !isExist();
+	}
+
+	@Override
 	public void somethingDo() {
 		out.println("---------------------------");
 		out.println("#here Bookmarks : 동작 수행");
